@@ -1,65 +1,56 @@
-var PT = PT || {};
-PT.Provisioning = PT.Provisioning || {};
+PT.Common.EnsureNamespace("PT.Provisioning");
 
-function waitMessage() {
-    window.parent.eval("window.waitDialog = SP.UI.ModalDialog.showWaitScreenWithNoClose('Oppretter prosjektområde', '', 80, 450);");
+PT.Provisioning.WaitMessage = function() {
+    window.parent.eval("window.waitDialog = SP.UI.ModalDialog.showWaitScreenWithNoClose('Oppretter område..', '', 80, 450);");
 }
-function closeWaitMessage() {
+PT.Provisioning.CloseWaitMessage = function() {
     if (window.parent.waitDialog != null) {
         window.parent.waitDialog.close();
     }
 };
 
-PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription) {
-    var webTemplate = 'STS#0';
-    var webLanguage = 1033;
+PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription, webTemplate) {
+    var deferred = jQuery.Deferred();
+    PT.Provisioning.WaitMessage();
+    debugger;
+    var reqData = "{ 'parameters': { '__metadata': { 'type': 'SP.WebCreationInformation' },'Title': '" + webTitle + "', 'Url': '" + webUrl + "', 'Description': '" + webDescription + "', 'WebTemplate': '" + webTemplate + "','UseSamePermissionsAsParentSite': true } }";
 
-    var clientContext = SP.ClientContext.get_current();
-    var currentWeb = clientContext.get_web();
+    jQuery.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/webs/add",
+        type: "POST",
+        contentType: "application/json;odata=verbose",
+        data: reqData,
+        dataType: 'json',
+        headers: {
+            "Accept": "application/json;odata=verbose",
+            "X-RequestDigest": $('#__REQUESTDIGEST').val()
+        },
+        success: function (data) {
+            PT.Provisioning.CloseWaitMessage();
+            deferred.resolve(data.d);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+            deferred.reject();
+        }
+    });
 
-    var webCreateInfo = new SP.WebCreationInformation();
-    webCreateInfo.set_description(webDescription);
-    webCreateInfo.set_language(webLanguage);
-    webCreateInfo.set_title(webTitle);
-    webCreateInfo.set_url(webUrl);
-    webCreateInfo.set_useSamePermissionsAsParentSite(false);
-    webCreateInfo.set_webTemplate(webTemplate);
+    return deferred.promise();
 
-    this.newWeb = currentWeb.get_webs().add(webCreateInfo);
-    clientContext.load(this.newWeb);
-    clientContext.executeQueryAsync(
-		Function.createDelegate(this, PT.Provisioning.OnCreateWebSuccess),
-		Function.createDelegate(this, PT.Provisioning.OnCreateWebFailure)
-	);
 };
 
 PT.Provisioning.SetPermissionsOnWeb = function  (webUrl) {
     // https://mysharepoint.com/sites/clients/_api/web/roleassignments/addroleassignment(principalid=[%Variable: building_group_id%],roleDefId=1073741829)
 }
 
-PT.Provisioning.OnCreateWebSuccess = function (sender, args) {
-    var newUrl = this.newWeb.get_url()
-    closeWaitMessage();
-    PT.Provisioning.SetPermissionsOnWeb(newUrl);
-    //var setupPermissionsUrl = newUrl + '/_layouts/15/permsetup.aspx?HideCancel=1';
-    //window.location.replace(setupPermissionsUrl);
-};
-
-PT.Provisioning.OnCreateWebFailure = function (sender, args) {
-    closeWaitMessage();
-    document.getElementById('projectFormValidation').innerHTML = args.get_message();
-    console.log('En feil oppstod: ' + args.get_message());
-    console.log("raw response data: \n" + args.get_webRequestExecutor().get_responseData());
-};
-
 PT.Provisioning.DoesWebExist = function (serverRelativeUrlOrFullUrl) {
     var deferred = jQuery.Deferred();
     jQuery.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/webinfos?$filter=ServerRelativeUrl eq '" + serverRelativeUrlOrFullUrl + "'",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/webinfos?$filter=Title eq '" + serverRelativeUrlOrFullUrl + "'",
         type: "GET",
         headers: { "Accept": "application/json; odata=verbose" },
         success: function (data) {
-            var webs = data.d.results.lenPTh;
+            var webs = data.d.results.length;
             if (webs >= 1) {
                 deferred.resolve(true);
             } else {
