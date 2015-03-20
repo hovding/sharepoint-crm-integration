@@ -1,0 +1,45 @@
+<script src="/SiteAssets/pt/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="/SiteAssets/pt/js/pt.common.js" type="text/javascript"></script>
+<script src="/SiteAssets/pt/js/pt.provisioning.js" type="text/javascript"></script>
+<script>
+    jQuery(function() {
+    	
+    	ExecuteOrDelayUntilScriptLoaded(startProvisioning, "sp.js");
+    });
+    function startProvisioning(){
+        var numb = Math.floor((Math.random() * 100) + 1);
+        PT.Provisioning.DoesWebExist(numb).done(
+            function(exists){
+                if(exists){
+                    console.log("Site exists");
+                    return;
+                }
+                PT.Provisioning.CreateWeb(numb, numb, numb, "STS#0").done(
+                    function(web){
+                        window.location.replace(web.Url);
+                    }
+                ).fail(console.log("Error provisioning site"));
+            }
+        ).fail();
+        
+    }
+</script>
+<h1>Opprett nytt rom</h1>
+<div id="gtprojectinputform" class="projectInputForm">
+    <div>
+        <label for="projectNameInput">Navn <span>*</span></label>
+        <input id="projectNameInput" type="text" placeholder="Rommets navn" autofocus required />
+    </div>
+    <div>
+    <label for="projectUrlInput">URL-kortnavn <span>*</span></label>
+    <input id="projectUrlInput" type="text" placeholder="Kortnavn som brukes i URL" required pattern="[a-zA-Z-\d]{3,20}" />
+    <label id="projectUrlPreview"></label>
+	<div id="projectUrlInputValidation" class="validationMessage" style="display:none">URL-kortnavnet kan bare inneholde bokstaver (utenom æøå), tall og bindestrek og må være mellom 3 og 20 tegn langt.</div>
+    </div>
+    <div>
+    <label for="projectDescriptionInput">Beskrivelse</label>
+    <textarea id="projectDescriptionInput" type="text" placeholder="Beskrivelse av rommet"></textarea>
+    </div>
+    <div id="projectFormValidation" class="validationMessage"></div>
+    <button id="createProjectBtn" onclick="PT.Provisioning.CreateWebFromCustomForm(); return false;">Opprett rom</button>
+</div>
