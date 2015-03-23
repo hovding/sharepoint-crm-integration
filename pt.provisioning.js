@@ -13,7 +13,7 @@ PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription, webTempl
     var deferred = jQuery.Deferred();
     PT.Provisioning.WaitMessage();
     debugger;
-    var reqData = "{ 'parameters': { '__metadata': { 'type': 'SP.WebCreationInformation' },'Title': '" + webTitle + "', 'Url': '" + webUrl + "', 'Description': '" + webDescription + "', 'WebTemplate': '" + webTemplate + "','UseSamePermissionsAsParentSite': true } }";
+    var reqData = "{ 'parameters': { '__metadata': { 'type': 'SP.WebCreationInformation' },'Title': '" + webTitle + "', 'Url': '" + webUrl + "', 'Description': '" + webDescription + "', 'WebTemplate': '" + webTemplate + "','UseSamePermissionsAsParentSite': false } }";
 
     jQuery.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/webs/add",
@@ -40,7 +40,41 @@ PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription, webTempl
 };
 
 PT.Provisioning.SetPermissionsOnWeb = function  (webUrl) {
-    // https://mysharepoint.com/sites/clients/_api/web/roleassignments/addroleassignment(principalid=[%Variable: building_group_id%],roleDefId=1073741829)
+
+    var deferred = $.Deferred();
+    var executor = new SP.RequestExecutor(webUrl);
+    executor.executeAsync(
+        {
+            url: webUrl + "/_api/web/roleassignments/addroleassignment(principalid=8,roleDefId=1073741828)",
+            method: "POST",
+            headers: { "Accept": "application/json; odata=nometadata" },
+            success: function(data){
+            deferred.resolve(data);    
+            },
+            error: function(data, errorCode, errorMessage){
+                deferred.reject(data,errorCode,errorMessage);    
+            }
+        }
+        );
+ 
+    return deferred.promise();      
+   
+   /*
+    var deferred = jQuery.Deferred();
+    jQuery.ajax({
+        url: webUrl + "/_api/web/roleassignments/addroleassignment(principalid=8,roleDefId=1073741828)",
+        type: "POST",
+        headers: { "Accept": "application/json; odata=nometadata" },
+        success: function (data) {
+            debugger;
+            deferred.resolve(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+        }
+    });
+    return deferred.promise();
+    */
 }
 
 PT.Provisioning.DoesWebExist = function (serverRelativeUrlOrFullUrl) {
