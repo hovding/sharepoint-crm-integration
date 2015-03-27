@@ -1,32 +1,43 @@
 <script src="/_layouts/15/SP.RequestExecutor.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
-<script src="https://pointtaken.sharepoint.com/sites/CRMUtv//SiteAssets/pt/js/pt.common.js" type="text/javascript"></script>
-<script src="https://pointtaken.sharepoint.com/sites/CRMUtv//SiteAssets/pt/js/pt.provisioning.js" type="text/javascript"></script>
+
 <script>
-    jQuery(function() {
-    	
-    	ExecuteOrDelayUntilScriptLoaded(startProvisioning, "sp.js");
-    });
-    function startProvisioning(){
-        var numb = Math.floor((Math.random() * 100) + 1);
-        PT.Provisioning.DoesWebExist(numb).done(
+    
+    var autoCreate = PT.Common.getParameterByName("autoCreate");
+    if(autoCreate=='true')
+    {
+        jQuery('#createForm').hide();
+        //debugger;
+        var title = PT.Common.getParameterByName("title");
+        var url = PT.Common.getParameterByName("url");
+        var desc = PT.Common.getParameterByName("desc");
+        startProvisioning(title, url, desc);
+    }
+    function getValuesFromForm()
+    {
+
+        var title = jQuery('#projectNameInput').val();
+        var url = jQuery('#projectUrlInput').val();
+        var desc = jQuery('#projectDescriptionInput').val();
+        startProvisioning(title, url, desc);
+    }
+    function startProvisioning(title, url, desc){
+
+        PT.Provisioning.DoesWebExist(jQuery('#projectUrlInput').val()).done(
             function(exists){
                 if(exists){
                     console.log("Site exists");
+                    jQuery('#projectFormValidation').text("Ett område med samme url finnes allerede!");
                     return;
                 }
-                PT.Provisioning.CreateWeb(numb, numb, numb, "STS#0").done(
+                //debugger;
+                PT.Provisioning.CreateWeb(title, url, desc, "STS#0").done(
                     function(web){
                         PT.Provisioning.SetPermissionsOnWeb(web.Url).done(
                             function(data){
-                                    
-
-
-                                //window.location.replace(web.Url);
+                                window.location.replace(web.Url);
                             }
                         ).fail(console.log("Error provisioning site"));
-
-
+                        //console.log("redirecting...")
                         //window.location.replace(web.Url);
                     }
                 ).fail(console.log("Error provisioning site"));
@@ -35,8 +46,8 @@
         
     }
 </script> 
-<div style="display:none">
-<h1>Opprett nytt rom</h1>
+<div id="createForm" style="display:inherit">
+<h1>Opprett nytt temaområde</h1>
 <div id="gtprojectinputform" class="projectInputForm">
     <div>
         <label for="projectNameInput">Navn <span>*</span></label>
@@ -53,6 +64,6 @@
     <textarea id="projectDescriptionInput" type="text" placeholder="Beskrivelse av rommet"></textarea>
     </div>
     <div id="projectFormValidation" class="validationMessage"></div>
-    <button id="createProjectBtn" onclick="PT.Provisioning.CreateWebFromCustomForm(); return false;">Opprett rom</button>
+    <button id="createProjectBtn" onclick="getValuesFromForm(); return false;">Opprett rom</button>
 </div>
 </div>
