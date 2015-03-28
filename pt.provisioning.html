@@ -1,7 +1,6 @@
-<script src="/_layouts/15/SP.RequestExecutor.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
-<script src="https://pointtaken.sharepoint.com/sites/CRMUtv//SiteAssets/pt/js/pt.common.js" type="text/javascript"></script>
-<script src="https://pointtaken.sharepoint.com/sites/CRMUtv//SiteAssets/pt/js/pt.provisioning.js" type="text/javascript"></script>
+<script src="/SiteAssets/pt/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="/SiteAssets/pt/js/pt.common.js" type="text/javascript"></script>
+<script src="/SiteAssets/pt/js/pt.provisioning.js" type="text/javascript"></script>
 <script>
     jQuery(function() {
     	
@@ -17,25 +16,14 @@
                 }
                 PT.Provisioning.CreateWeb(numb, numb, numb, "STS#0").done(
                     function(web){
-                        PT.Provisioning.SetPermissionsOnWeb(web.Url).done(
-                            function(data){
-                                    
-
-
-                                //window.location.replace(web.Url);
-                            }
-                        ).fail(console.log("Error provisioning site"));
-
-
-                        //window.location.replace(web.Url);
+                        window.location.replace(web.Url);
                     }
                 ).fail(console.log("Error provisioning site"));
             }
         ).fail();
         
     }
-</script> 
-<div style="display:none">
+</script>
 <h1>Opprett nytt rom</h1>
 <div id="gtprojectinputform" class="projectInputForm">
     <div>
@@ -54,5 +42,4 @@
     </div>
     <div id="projectFormValidation" class="validationMessage"></div>
     <button id="createProjectBtn" onclick="PT.Provisioning.CreateWebFromCustomForm(); return false;">Opprett rom</button>
-</div>
 </div>
