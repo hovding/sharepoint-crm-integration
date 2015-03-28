@@ -12,11 +12,9 @@ PT.Provisioning.CloseWaitMessage = function () {
 PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription, webTemplate) {
     var deferred = jQuery.Deferred();
     PT.Provisioning.WaitMessage();
-<<<<<<< HEAD
+
     debugger;
-=======
-    //debugger;
->>>>>>> 9e65442bc03ffc1498498e2c7c2d1342ca14313a
+
     var reqData = "{ 'parameters': { '__metadata': { 'type': 'SP.WebCreationInformation' },'Title': '" + webTitle + "', 'Url': '" + webUrl + "', 'Description': '" + webDescription + "', 'WebTemplate': '" + webTemplate + "','UseSamePermissionsAsParentSite': true } }";
 
     jQuery.ajax({
@@ -43,18 +41,35 @@ PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription, webTempl
 
 };
 
-<<<<<<< HEAD
-PT.Provisioning.SetPermissionsOnWeb = function  (webUrl) {
-    // https://mysharepoint.com/sites/clients/_api/web/roleassignments/addroleassignment(principalid=[%Variable: building_group_id%],roleDefId=1073741829)
-}
-=======
-PT.Provisioning.SetPermissionsOnWeb = function (webUrl) {
-
+PT.Provisioning.GetSiteGroupByName = function(groupName){
     var deferred = $.Deferred();
     var executor = new SP.RequestExecutor(webUrl);
     executor.executeAsync(
         {
-            url: webUrl + "/_api/web/roleassignments/addroleassignment(principalid=8,roleDefId=1073741828)",
+            url: webUrl + "/_api/web/sitegroups/getbyname('"+groupName+"')/id",
+            method: "POST",
+            headers: { "Accept": "application/json; odata=nometadata" },
+            success: function (data) {
+                deferred.resolve(data.d.Id);
+            },
+            error: function (data, errorCode, errorMessage) {
+                deferred.reject(data, errorCode, errorMessage);
+            }
+        }
+        );
+
+    return deferred.promise();
+
+   
+}
+PT.Provisioning.SetPermissionsOnWeb = function (webUrl, prinsipalId, permissionLevel) {
+
+    var deferred = $.Deferred();
+   
+    var executor = new SP.RequestExecutor(webUrl);
+    executor.executeAsync(
+        {
+            url: webUrl + "/_api/web/roleassignments/addroleassignment(principalid="+principalid+",roleDefId="+permissionLevel+")",
             method: "POST",
             headers: { "Accept": "application/json; odata=nometadata" },
             success: function (data) {
@@ -69,7 +84,7 @@ PT.Provisioning.SetPermissionsOnWeb = function (webUrl) {
     return deferred.promise();
 
 };
->>>>>>> 9e65442bc03ffc1498498e2c7c2d1342ca14313a
+
 
 PT.Provisioning.DoesWebExist = function (serverRelativeUrlOrFullUrl) {
     var deferred = jQuery.Deferred();
