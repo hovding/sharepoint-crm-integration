@@ -1,0 +1,4 @@
+C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\bin\Debug\SP-CRM.dll
+C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\bin\Debug\SP-CRM.pdb
+C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\obj\Debug\SP-CRM.dll
+C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\obj\Debug\SP-CRM.pdb

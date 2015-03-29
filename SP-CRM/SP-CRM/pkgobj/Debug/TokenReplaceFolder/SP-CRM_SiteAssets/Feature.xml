@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Title="SP-CRM.SiteAssets" Id="97522596-cf79-4979-8097-eaad4f6c641f" Scope="Web">
+  <ElementManifests>
+    <ElementManifest Location="SiteAssets\Elements.xml" />
+    <ElementFile Location="SiteAssets\js\pt.common.js" />
+    <ElementFile Location="SiteAssets\html\pt.provisioning.html" />
+    <ElementFile Location="SiteAssets\js\pt.provisioning.js" />
+    <ElementFile Location="SiteAssets\js\jquery-1.11.1.min.js" />
+  </ElementManifests>
+</Feature>

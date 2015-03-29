@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="SiteAssets" Path="SiteAssets" Url="SiteAssets/pt">
+    <File Path="js\pt.common.js" Url="js/pt.common.js" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
+    <File Path="html\pt.provisioning.html" Url="html/pt.provisioning.txt" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
+    <File Path="js\pt.provisioning.js" Url="js/pt.provisioning.js" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
+    <File Path="js\jquery-1.11.1.min.js" Url="js/jquery-1.11.1.min.js" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
+  </Module>
+</Elements>

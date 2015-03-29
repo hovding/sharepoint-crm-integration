@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="d321b497-5dcd-4872-b7ee-f404a19f0cec" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="SP-CRM.dll" DeploymentTarget="GlobalAssemblyCache" />
+  </Assemblies>
+  <FeatureManifests>
+    <FeatureManifest Location="SP-CRM_SiteAssets\Feature.xml" />
+  </FeatureManifests>
+</Solution>

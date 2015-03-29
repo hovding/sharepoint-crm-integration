@@ -1,0 +1,87 @@
+2015-03-29 20:19:02,198 [1] DEBUG Sherpa.Installer.Program Sherpa application started
+2015-03-29 20:19:02,211 [1] INFO  Sherpa.Installer.OptionsParser You can start Sherpa from the command line to specify multiple arguments.
+2015-03-29 20:20:25,560 [1] DEBUG Sherpa.Installer.Program Sherpa started with the following options - URL: https://pointtaken.sharepoint.com/sites/crmutv/, userName: kh@ptaken.no, configPath: , spo: True, unmanaged: False
+2015-03-29 20:20:33,505 [1] DEBUG Sherpa.Installer.AuthenticationHandler Attempting to authenticate with SharePointOnlineCredentials
+2015-03-29 20:20:36,410 [1] INFO  Sherpa.Installer.AuthenticationHandler Authenticating with specified credentials
+2015-03-29 20:20:36,413 [1] DEBUG Sherpa.Installer.InstallationManager Installation manager created
+2015-03-29 20:20:36,417 [1] DEBUG Sherpa.Installer.InstallationManager Site Url: https://pointtaken.sharepoint.com/sites/crmutv/, Configpath: C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa, SPO: True
+2015-03-29 20:20:45,082 [1] INFO  Sherpa.Installer.InstallationManager Executing operation UploadAndActivateSolution
+2015-03-29 20:20:45,084 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:20:45,090 [1] INFO  Sherpa.Installer.InstallationManager Uploading and activating sandboxed solution(s)
+2015-03-29 20:20:45,496 [1] INFO  Sherpa.Installer.InstallationManager Processing solution package C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa\solutions\SP_CRM.wsp
+2015-03-29 20:20:45,682 [1] INFO  Sherpa.Library.Deploy.DeployManager Uploading package SP_CRM.wsp to library 
+2015-03-29 20:20:46,472 [1] INFO  Sherpa.Library.Deploy.DeployManager Installing solution package SP_CRM-v1.0.wsp
+2015-03-29 20:20:51,260 [1] INFO  Sherpa.Installer.InstallationManager Done uploading and activating sandboxed solution(s)
+2015-03-29 20:20:51,264 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:23:25,584 [1] INFO  Sherpa.Installer.InstallationManager Executing operation ConfigureSites
+2015-03-29 20:23:25,587 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:23:25,590 [1] DEBUG Sherpa.Installer.InstallationManager Starting ConfigureSitesFromAllSiteHierarchyFiles, only content type dependencies: False
+2015-03-29 20:23:25,593 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:23:31,000 [1] INFO  Sherpa.Installer.InstallationManager Executing operation ConfigureSites
+2015-03-29 20:23:31,002 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:23:31,005 [1] DEBUG Sherpa.Installer.InstallationManager Starting ConfigureSitesFromAllSiteHierarchyFiles, only content type dependencies: False
+2015-03-29 20:23:31,007 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:23:43,632 [1] INFO  Sherpa.Installer.InstallationManager Executing operation UploadAndActivateSolution
+2015-03-29 20:23:43,635 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:23:43,639 [1] INFO  Sherpa.Installer.InstallationManager Uploading and activating sandboxed solution(s)
+2015-03-29 20:23:44,366 [1] INFO  Sherpa.Installer.InstallationManager Processing solution package C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa\solutions\SP_CRM.wsp
+2015-03-29 20:23:44,525 [1] INFO  Sherpa.Library.Deploy.DeployManager Uploading package SP_CRM.wsp to library 
+2015-03-29 20:23:45,330 [1] INFO  Sherpa.Library.Deploy.DeployManager Installing solution package SP_CRM-v1.1.wsp
+2015-03-29 20:23:46,705 [1] INFO  Sherpa.Installer.InstallationManager Done uploading and activating sandboxed solution(s)
+2015-03-29 20:23:46,708 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:25:53,464 [1] INFO  Sherpa.Installer.InstallationManager Executing operation ConfigureSites
+2015-03-29 20:25:53,467 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:25:53,470 [1] DEBUG Sherpa.Installer.InstallationManager Starting ConfigureSitesFromAllSiteHierarchyFiles, only content type dependencies: False
+2015-03-29 20:25:53,473 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:26:00,425 [1] INFO  Sherpa.Installer.InstallationManager Executing operation UploadAndActivateSolution
+2015-03-29 20:26:00,427 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:26:00,430 [1] INFO  Sherpa.Installer.InstallationManager Uploading and activating sandboxed solution(s)
+2015-03-29 20:26:01,198 [1] INFO  Sherpa.Installer.InstallationManager Processing solution package C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa\solutions\SP_CRM.wsp
+2015-03-29 20:26:01,360 [1] INFO  Sherpa.Library.Deploy.DeployManager Uploading package SP_CRM.wsp to library 
+2015-03-29 20:26:02,337 [1] INFO  Sherpa.Library.Deploy.DeployManager Installing solution package SP_CRM-v1.2.wsp
+2015-03-29 20:26:03,191 [1] INFO  Sherpa.Installer.InstallationManager Done uploading and activating sandboxed solution(s)
+2015-03-29 20:26:03,193 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:30:26,704 [1] INFO  Sherpa.Installer.InstallationManager Executing operation UploadAndActivateSolution
+2015-03-29 20:30:26,706 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:30:26,709 [1] INFO  Sherpa.Installer.InstallationManager Uploading and activating sandboxed solution(s)
+2015-03-29 20:30:27,874 [1] INFO  Sherpa.Installer.InstallationManager Processing solution package C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa\solutions\SP_CRM.wsp
+2015-03-29 20:30:28,038 [1] INFO  Sherpa.Library.Deploy.DeployManager Uploading package SP_CRM.wsp to library 
+2015-03-29 20:30:29,518 [1] INFO  Sherpa.Library.Deploy.DeployManager Installing solution package SP_CRM-v1.3.wsp
+2015-03-29 20:30:31,180 [1] INFO  Sherpa.Installer.InstallationManager Done uploading and activating sandboxed solution(s)
+2015-03-29 20:30:31,183 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:36:23,496 [1] INFO  Sherpa.Installer.InstallationManager Executing operation UploadAndActivateSolution
+2015-03-29 20:36:23,499 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:36:23,502 [1] INFO  Sherpa.Installer.InstallationManager Uploading and activating sandboxed solution(s)
+2015-03-29 20:36:24,180 [1] INFO  Sherpa.Installer.InstallationManager Processing solution package C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa\solutions\SP_CRM.wsp
+2015-03-29 20:36:24,340 [1] INFO  Sherpa.Library.Deploy.DeployManager Uploading package SP_CRM.wsp to library 
+2015-03-29 20:36:25,591 [1] INFO  Sherpa.Library.Deploy.DeployManager Installing solution package SP_CRM-v1.4.wsp
+2015-03-29 20:36:26,830 [1] INFO  Sherpa.Installer.InstallationManager Done uploading and activating sandboxed solution(s)
+2015-03-29 20:36:26,832 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:46:14,815 [1] INFO  Sherpa.Installer.InstallationManager Executing operation ConfigureSites
+2015-03-29 20:46:14,818 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:46:14,822 [1] DEBUG Sherpa.Installer.InstallationManager Starting ConfigureSitesFromAllSiteHierarchyFiles, only content type dependencies: False
+2015-03-29 20:46:14,824 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:46:16,807 [1] INFO  Sherpa.Installer.InstallationManager Executing operation UploadAndActivateSolution
+2015-03-29 20:46:16,809 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:46:16,812 [1] INFO  Sherpa.Installer.InstallationManager Uploading and activating sandboxed solution(s)
+2015-03-29 20:46:17,418 [1] INFO  Sherpa.Installer.InstallationManager Processing solution package C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa\solutions\SP_CRM.wsp
+2015-03-29 20:46:17,617 [1] INFO  Sherpa.Library.Deploy.DeployManager Uploading package SP_CRM.wsp to library 
+2015-03-29 20:46:19,016 [1] INFO  Sherpa.Library.Deploy.DeployManager Installing solution package SP_CRM-v1.5.wsp
+2015-03-29 20:46:20,120 [1] INFO  Sherpa.Installer.InstallationManager Done uploading and activating sandboxed solution(s)
+2015-03-29 20:46:20,125 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:48:35,934 [1] INFO  Sherpa.Installer.InstallationManager Executing operation UploadAndActivateSolution
+2015-03-29 20:48:35,938 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:48:35,946 [1] INFO  Sherpa.Installer.InstallationManager Uploading and activating sandboxed solution(s)
+2015-03-29 20:48:36,543 [1] INFO  Sherpa.Installer.InstallationManager Processing solution package C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa\solutions\SP_CRM.wsp
+2015-03-29 20:48:36,711 [1] INFO  Sherpa.Library.Deploy.DeployManager Uploading package SP_CRM.wsp to library 
+2015-03-29 20:48:38,208 [1] INFO  Sherpa.Library.Deploy.DeployManager Installing solution package SP_CRM-v1.6.wsp
+2015-03-29 20:48:38,725 [1] INFO  Sherpa.Installer.InstallationManager Done uploading and activating sandboxed solution(s)
+2015-03-29 20:48:38,734 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation
+2015-03-29 20:50:59,983 [1] INFO  Sherpa.Installer.InstallationManager Executing operation UploadAndActivateSolution
+2015-03-29 20:50:59,985 [1] INFO  Sherpa.Installer.InstallationManager No configuration file - convention mode enabled
+2015-03-29 20:50:59,989 [1] INFO  Sherpa.Installer.InstallationManager Uploading and activating sandboxed solution(s)
+2015-03-29 20:51:00,412 [1] INFO  Sherpa.Installer.InstallationManager Processing solution package C:\Users\kjeti\Documents\GitHub\sharepoint-crm-integration\SP-CRM\SP-CRM\Sherpa\solutions\SP_CRM.wsp
+2015-03-29 20:51:00,590 [1] INFO  Sherpa.Library.Deploy.DeployManager Uploading package SP_CRM.wsp to library 
+2015-03-29 20:51:02,340 [1] INFO  Sherpa.Library.Deploy.DeployManager Installing solution package SP_CRM-v1.7.wsp
+2015-03-29 20:51:03,779 [1] INFO  Sherpa.Installer.InstallationManager Done uploading and activating sandboxed solution(s)
+2015-03-29 20:51:03,784 [1] DEBUG Sherpa.Installer.InstallationManager Completed installation operation

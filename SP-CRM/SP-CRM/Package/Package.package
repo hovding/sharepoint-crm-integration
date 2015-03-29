@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d321b497-5dcd-4872-b7ee-f404a19f0cec" solutionId="d321b497-5dcd-4872-b7ee-f404a19f0cec" resetWebServer="false" sharePointProductVersion="15.0" name="SP_CRM" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="55b8c5e7-b431-4827-8b63-442580cc7218" />
+  </features>
+</package>
