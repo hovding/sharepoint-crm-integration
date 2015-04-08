@@ -1,11 +1,12 @@
-<script src="https://pointtaken.sharepoint.com/sites/CRMUtv/SiteAssets/pt/js/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="https://pointtaken.sharepoint.com/sites/CRMUtv/SiteAssets/pt/js/pt.common.js" type="text/javascript"></script>
-<script src="https://pointtaken.sharepoint.com/sites/CRMUtv/SiteAssets/pt/js/pt.provisioning.js" type="text/javascript"></script>
+<script src="https://osv.sharepoint.com/teams/CRM/SiteAssets/pt/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="https://osv.sharepoint.com/teams/CRM/SiteAssets/pt/js/pt.common.js" type="text/javascript"></script>
+<script src="https://osv.sharepoint.com/teams/CRM/SiteAssets/pt/js/pt.provisioning.js" type="text/javascript"></script>
 <script src="/_layouts/15/SP.RequestExecutor.js" type="text/javascript"></script>
 <script>    
 
     
-    var autoCreate = PT.Common.getParameterByName("autoCreate");
+	var autoCreate = PT.Common.getParameterByName("autoCreate");
+	debugger;
     if(autoCreate=='true')
     {
         jQuery('#createForm').hide();
@@ -15,6 +16,8 @@
         var desc = PT.Common.getParameterByName("desc");
         startProvisioning(title, url, desc);
     }
+	else
+    	jQuery('#createForm').show();
     function getValuesFromForm()
     {
 
@@ -25,11 +28,13 @@
     }
     function startProvisioning(title, url, desc){
 
-        PT.Provisioning.DoesWebExist(jQuery('#projectUrlInput').val()).done(
+        PT.Provisioning.DoesWebExist(url).done(
             function(exists){
                 if(exists){
                     console.log("Site exists");
                     jQuery('#projectFormValidation').text("Ett område med samme url finnes allerede!");
+                	//todo: redirect
+                    window.location.replace(_spPageContextInfo.webAbsoluteUrl + "/" + url);
                     return;
                 }
                 //debugger;
@@ -40,13 +45,15 @@
                         var read=1073741826;
                         var design=1073741828;
                         var permissionLevel = contribute;
-                        PT.Provisioning.SetPermissionsOnWeb(web.Url,8, permissionLevel).done(
+						//Uncomment this to set permissions on web
+                        /*PT.Provisioning.SetPermissionsOnWeb(web.Url,8, permissionLevel).done(
                             function(data){
                                 window.location.replace(web.Url);
                             }
                         ).fail(console.log("Error provisioning site"));
-                        //console.log("redirecting...")
-                        //window.location.replace(web.Url);
+						*/
+                        console.log("redirecting...")
+                        window.location.replace(web.Url);
 
                     }
                 ).fail(console.log("Error provisioning site"));
@@ -56,7 +63,7 @@
     }
 
 </script> 
-<div id="createForm" style="display:inherit">
+<div id="createForm" style="display:none">
 <h1>Opprett nytt område</h1>
 <div id="gtprojectinputform" class="projectInputForm">
     <div>
@@ -74,6 +81,6 @@
     <textarea id="projectDescriptionInput" type="text" placeholder="Beskrivelse av rommet"></textarea>
     </div>
     <div id="projectFormValidation" class="validationMessage"></div>
-    <button id="createProjectBtn" onclick="getValuesFromForm(); return false;">Opprett rom</button>
+	<button id="createProjectBtn" onclick="getValuesFromForm(); return false;">Opprett rom</button>
 </div>
 </div>

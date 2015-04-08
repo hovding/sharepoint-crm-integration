@@ -64,12 +64,12 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
+    <None Include="Sherpa\Config\sitehierarchy.json" />
     <None Include="SPI\SiteAssets\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{00609f67-7220-49f0-8610-72c2035687f0}</SharePointProjectItemId>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Sherpa\Config\" />
     <Folder Include="Sherpa\Solutions\" />
   </ItemGroup>
   <ItemGroup>

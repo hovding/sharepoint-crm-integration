@@ -1,8 +1,9 @@
 PT.Common.EnsureNamespace("PT.Provisioning");
 
 PT.Provisioning.WaitMessage = function () {
-    window.parent.eval("window.waitDialog = SP.UI.ModalDialog.showWaitScreenWithNoClose('Oppretter område..', '', 80, 450);");
-}
+	window.parent.eval("window.waitDialog = SP.UI.ModalDialog.showWaitScreenWithNoClose('Oppretter område..', '', 80, 450);");
+};
+
 PT.Provisioning.CloseWaitMessage = function () {
     if (window.parent.waitDialog != null) {
         window.parent.waitDialog.close();
@@ -11,14 +12,15 @@ PT.Provisioning.CloseWaitMessage = function () {
 
 PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription, webTemplate) {
     var deferred = jQuery.Deferred();
-    PT.Provisioning.WaitMessage();
+    //debugger;
+    //PT.Provisioning.WaitMessage();
 
-    debugger;
+    
 
     var reqData = "{ 'parameters': { '__metadata': { 'type': 'SP.WebCreationInformation' },'Title': '" + webTitle + "', 'Url': '" + webUrl + "', 'Description': '" + webDescription + "', 'WebTemplate': '" + webTemplate + "','UseSamePermissionsAsParentSite': true } }";
 
     jQuery.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/temarom/_api/web/webs/add",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/webs/add",
         type: "POST",
         contentType: "application/json;odata=verbose",
         data: reqData,
@@ -86,10 +88,10 @@ PT.Provisioning.SetPermissionsOnWeb = function (webUrl, prinsipalId, permissionL
 };
 
 
-PT.Provisioning.DoesWebExist = function (serverRelativeUrlOrFullUrl) {
+PT.Provisioning.DoesWebExist = function (serverRelativeUrl) {
     var deferred = jQuery.Deferred();
     jQuery.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/temarom/_api/web/webinfos?$filter=Title eq '" + serverRelativeUrlOrFullUrl + "'",
+    	url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/webinfos?$filter=Title eq '" + serverRelativeUrl + "'",
         type: "GET",
         headers: { "Accept": "application/json; odata=verbose" },
         success: function (data) {

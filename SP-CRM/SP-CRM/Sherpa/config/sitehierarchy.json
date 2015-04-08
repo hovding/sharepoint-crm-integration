@@ -1,0 +1,40 @@
+﻿{
+    "FieldConfigurations": [
+        
+    ],
+    "ContentTypeConfigurations": [
+        
+    ],
+    "TaxonomyConfigurations": [
+        
+    ],
+    "SandboxedSolutions": [
+        "SP_CRM.wsp"
+    ],
+    "SiteFeatures": [
+       
+    ],
+    "RootWeb": {
+        "ContentFolders": [
+            
+        ],
+        "Description": "SP-CRM",
+        "Language": "1033",
+        "Name": "SP-CRM",
+        "Lists": [],
+        "Properties": {
+        },
+        "Quicklaunch": { },
+        "Template": "",
+        "Url": "/",
+        "WebFeatures": [
+            {
+                "FeatureId": "97522596-cf79-4979-8097-eaad4f6c641f",
+                "FeatureName": "SP-CRM.SiteAssets",
+                "ReactivateAlways": "true"
+            }
+        ],
+        "CustomTaskTypes": [ ],
+        "Webs": [ ]
+    }
+}
