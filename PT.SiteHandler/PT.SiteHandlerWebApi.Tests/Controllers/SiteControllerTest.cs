@@ -50,7 +50,7 @@ namespace PT.SiteHandlerWebApi.Tests.Controllers
 
 			// Act
 			controller.Post(new OfficeDevPnP.Core.Entities.SiteEntity
-			{ Url="123", Description="123", Title="123" }
+			{ Url="hakon", Description="hakon", Title="hakons" }
 			);
 
 			// Assert

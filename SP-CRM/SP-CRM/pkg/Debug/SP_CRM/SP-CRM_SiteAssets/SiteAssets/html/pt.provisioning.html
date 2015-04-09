@@ -1,7 +1,8 @@
+<script src="/_layouts/15/SP.RequestExecutor.js" type="text/javascript"></script>
 <script src="https://osv.sharepoint.com/teams/CRM/SiteAssets/pt/js/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="https://osv.sharepoint.com/teams/CRM/SiteAssets/pt/js/pt.common.js" type="text/javascript"></script>
 <script src="https://osv.sharepoint.com/teams/CRM/SiteAssets/pt/js/pt.provisioning.js" type="text/javascript"></script>
-<script src="/_layouts/15/SP.RequestExecutor.js" type="text/javascript"></script>
+
 <script>    
 
     
@@ -14,6 +15,7 @@
         var title = PT.Common.getParameterByName("title");
         var url = PT.Common.getParameterByName("url");
         var desc = PT.Common.getParameterByName("desc");
+
         startProvisioning(title, url, desc);
     }
 	else
@@ -26,9 +28,9 @@
         var desc = jQuery('#projectDescriptionInput').val();
         startProvisioning(title, url, desc);
     }
-    function startProvisioning(title, url, desc){
-
-        PT.Provisioning.DoesWebExist(url).done(
+    function startProvisioning(title, url, desc) {
+    	debugger;
+    	PT.Provisioning.DoesWebExist(title).done(
             function(exists){
                 if(exists){
                     console.log("Site exists");
@@ -38,7 +40,7 @@
                     return;
                 }
                 //debugger;
-                PT.Provisioning.CreateWeb(title, url, desc, "STS#0").done(
+            	PT.Provisioning.CreateWeb(title, url, desc, "{06822CB4-D866-4965-ACA5-B38BBE7320D1}#OpportunityTemplate").done(
                     function(web){
                         var fullControl=1073741829;
                         var contribute=1073741827;
@@ -62,7 +64,25 @@
         
     }
 
-</script> 
+</script>
+<style type="text/css">
+	#sideNavBox {
+		display: none;
+	}
+
+	#contentBox {
+		margin-left: 0px;
+	}
+
+	.ms-fullscreenmode #contentBox {
+		margin-left: 10px;
+	}
+	#s4-titlerow {
+		display:none !important;
+	}
+</style> 
+<h1>Please wait while we check for an excisting SP Site or while we create a new one.... </h1>
+<!--<div></div>
 <div id="createForm" style="display:none">
 <h1>Opprett nytt område</h1>
 <div id="gtprojectinputform" class="projectInputForm">
@@ -83,4 +103,4 @@
     <div id="projectFormValidation" class="validationMessage"></div>
 	<button id="createProjectBtn" onclick="getValuesFromForm(); return false;">Opprett rom</button>
 </div>
-</div>
+</div>-->

@@ -13,7 +13,7 @@ PT.Provisioning.CloseWaitMessage = function () {
 PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription, webTemplate) {
     var deferred = jQuery.Deferred();
     //debugger;
-    //PT.Provisioning.WaitMessage();
+    PT.Provisioning.WaitMessage();
 
     
 
