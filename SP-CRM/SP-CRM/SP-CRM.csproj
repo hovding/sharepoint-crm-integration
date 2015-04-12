@@ -80,6 +80,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="SPI\SiteAssets\js\jquery-1.11.1.min.js" />
+    <Content Include="SPI\SiteAssets\js\pt.lists.js" />
     <Content Include="SPI\SiteAssets\js\pt.common.js" />
     <Content Include="SPI\SiteAssets\html\pt.provisioning.html" />
     <Content Include="SPI\SiteAssets\js\pt.provisioning.js" />

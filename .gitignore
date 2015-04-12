@@ -198,3 +198,10 @@ FakesAssemblies/
 *.dll
 *.pdb
 *.wsp
+SP-CRM/.vs/SP-CRM/v14/vbcs.cache/storage.ide
+*.dll
+SP-CRM/SP-CRM/bin/Debug/SP-CRM.pdb
+*.dll
+SP-CRM/SP-CRM/Sherpa/solutions/SP_CRM.wsp
+*.wsp
+SP-CRM/SP-CRM/Sherpa/sherpa.log
