@@ -5,5 +5,6 @@
     <File Path="html\pt.provisioning.html" Url="html/pt.provisioning.txt" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
     <File Path="js\pt.provisioning.js" Url="js/pt.provisioning.js" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
     <File Path="js\jquery-1.11.1.min.js" Url="js/jquery-1.11.1.min.js" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
+    <File Path="js\pt.lists.js" Url="js/pt.lists.js" Type="GhostableInLibrary" ReplaceContent="TRUE"  />
   </Module>
 </Elements>

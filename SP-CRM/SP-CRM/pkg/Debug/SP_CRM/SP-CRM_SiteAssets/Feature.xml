@@ -6,5 +6,6 @@
     <ElementFile Location="SiteAssets\html\pt.provisioning.html" />
     <ElementFile Location="SiteAssets\js\pt.provisioning.js" />
     <ElementFile Location="SiteAssets\js\jquery-1.11.1.min.js" />
+    <ElementFile Location="SiteAssets\js\pt.lists.js" />
   </ElementManifests>
 </Feature>

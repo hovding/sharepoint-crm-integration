@@ -13,7 +13,7 @@ PT.Provisioning.CloseWaitMessage = function () {
 PT.Provisioning.CreateWeb = function (webTitle, webUrl, webDescription, webTemplate) {
     var deferred = jQuery.Deferred();
     //debugger;
-    PT.Provisioning.WaitMessage();
+    //PT.Provisioning.WaitMessage();
 
     
 
@@ -89,9 +89,10 @@ PT.Provisioning.SetPermissionsOnWeb = function (webUrl, prinsipalId, permissionL
 
 
 PT.Provisioning.DoesWebExist = function (serverRelativeUrl) {
-    var deferred = jQuery.Deferred();
+	var deferred = jQuery.Deferred();
+	var url = "/teams/CRM/Opportunities/" + serverRelativeUrl;
     jQuery.ajax({
-    	url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/webinfos?$filter=Title eq '" + serverRelativeUrl + "'",
+    	url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/webinfos?$filter=ServerRelativeUrl eq '" + url + "'",
         type: "GET",
         headers: { "Accept": "application/json; odata=verbose" },
         success: function (data) {
@@ -103,7 +104,8 @@ PT.Provisioning.DoesWebExist = function (serverRelativeUrl) {
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.log(textStatus);
+        	console.log(textStatus);
+        	deferred.reject(jqXHR, textStatus, errorThrown);
         }
     });
     return deferred.promise();
